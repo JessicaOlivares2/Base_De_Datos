@@ -5,3 +5,4 @@
     SELECT personid From inhabitant where name = 'Stranger'
     SELECT gold From inhabitant where name = 'Stranger'
     SELECT * FROM item where owner is null
+    UPDATE item SET owner = '20' WHERE owner is null
