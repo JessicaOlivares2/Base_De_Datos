@@ -46,5 +46,13 @@ de la membership*/
 SELECT * FROM get_fit_now_check_in
 where check_in_date = '20180109'
 
+9no codigo:
+SELECT p.name, d.plate_number, g.membership_status FROM person p
+JOIN drivers_license d ON p.license_id = d.id
+JOIN  get_fit_now_member g ON p.id = g.person_id
+where plate_number like '%H42W%'
+/*busque la placa que tenga %H42W% ademas de que la membresia sea
+de oro y me salio el asesino*/
+
 
 
