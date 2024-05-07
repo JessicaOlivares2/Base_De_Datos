@@ -20,7 +20,7 @@ codigo 5:
 SELECT e.first_name,e.last_name,e.salary,department_name FROM departments d
 JOIN employees e on d.department_id = e.department_id
 WHERE salary BETWEEN 9000 AND 17000
-ORDER by salary
+ORDER by salary DESC
 
 codigo 6:
 JOIN countries c ON r.region_id = c.region_id
