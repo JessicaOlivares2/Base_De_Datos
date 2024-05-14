@@ -23,6 +23,7 @@ WHERE salary BETWEEN 9000 AND 17000
 ORDER by salary DESC
 
 codigo 6:
+SELECT region_name,c.country_name,count(*) as paises from regions r
 JOIN countries c ON r.region_id = c.region_id
 GROUP by region_name
 HAVING paises > 5
@@ -45,3 +46,11 @@ SELECT e.first_name,e.last_name,max_salary from jobs j
 join employees e on j.job_id = e.job_id
 ORDER by max_salary DESC
 LIMIT 1 OFFSET 2
+
+codigo 10:
+SELECT e.first_name, e.last_name,count(*) as hijos,
+avg(d.relationship)as promedio FROM employees e
+JOIN dependents d on e.employee_id = d.employee_id
+GROUP by e.last_name
+ORDER by hijos DESC
+(me falta lo maximo y ya esta)
