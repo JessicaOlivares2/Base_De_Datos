@@ -110,7 +110,8 @@ left JOIN
 ejemplo 1
 SELECT E.FirstName as 'nombre', D.State as 'compania' FROM employees E
 LEFT JOIN customers D ON E.EmployeeId = D.CustomerId
---left join es mostrar los valores nulos de la tabla izquierda
+--left join es mostrar los valores nulos de la tabla izquierda y normales
+--muestra todo de la tabla izquierda
 ejemplo 2 : 
 SELECT name, Composer, Title FROM tracks t
 left JOIN albums a ON t.AlbumId = a.AlbumId
