@@ -115,4 +115,4 @@ LEFT JOIN customers D ON E.EmployeeId = D.CustomerId
 ejemplo 2 : 
 SELECT name, Composer, Title FROM tracks t
 left JOIN albums a ON t.AlbumId = a.AlbumId
-
+--REPASO DE CONSULTAS
