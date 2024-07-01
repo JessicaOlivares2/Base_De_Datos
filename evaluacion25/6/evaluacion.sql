@@ -6,6 +6,10 @@
 SELECT d.department_name,count(first_name) as empleados, salary from employees e
 join departments d on e.department_id = d.department_id
 GROUP by d.department_name
+--codigo corregido:
+SELECT d.department_name,COUNT(e.first_name) AS empleados, SUM(e.salary) AS total_salarios FROM employees e
+JOIN departments d ON e.department_id = d.department_id
+GROUP BY d.department_name, d.department_id;
 
 --2--
 --Nos solicita un listado que contenga nombre, apellido, departamento y pais
@@ -28,12 +32,19 @@ where c.country_name  like "%America%"
 SELECT employee_id,first_name,last_name,email,phone_number,d.department_id from employees e
 join departments d on e.department_id = d.department_id
 where phone_number is null
+--codigo corregido:
+SELECT employee_id,first_name,last_name,email,phone_number,department_id from employees e
+where phone_number is null
 
 --lo que cambie
 UPDATE employees
 set phone_number = 111.222.3344
 where phone_number is null
 --aunq no me dejo poner .3344 asiq lo puse sin punto-
+--codigo corregido:
+UPDATE employees
+set phone_number = "111.222.3344"
+where phone_number is null
 
 --4--
 --Debido a una politica de mejora de sueldos nos solicitan que incrementemos un 20% 
@@ -47,6 +58,16 @@ WHERE job_id IN (
     JOIN employees e ON j.job_id = e.job_id
     WHERE j.job_title LIKE 'Pro%' 
       AND e.salary <= 8000 )
+
+--codigo corregido:
+UPDATE employees
+SET salary = salary + (salary * 0.20)
+WHERE job_id IN (
+    SELECT job_id
+    FROM jobs
+    WHERE job_title LIKE 'Pro%' OR job_title = 'Empleado de Compras'
+)
+AND salary <= 8000;
 
 --5--
 --Nos informan de la creación de un nuevo departamento dentro de la empresa que tendrá el nombre 
